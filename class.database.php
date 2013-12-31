@@ -6,8 +6,7 @@
     Author URI: http://fatihgol.com/
     Version: 2.4.1
     
-    License: GNU General Public License v2.0
-    License URI: http://www.gnu.org/licenses/gpl-2.0.html
+    License: Licensed under the MIT (MIT-LICENSE.txt).
 
     Tags: PDO,Database,Class,PHP,Data,Object
 ***************************************/
