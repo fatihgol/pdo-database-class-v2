@@ -96,7 +96,7 @@ Class Database extends dbConfig
 			$rows = $results->fetchAll();
 			return $rows;
 
-		} catch (PDOExecption $e) {
+		} catch (PDOException $e) {
 
 			return 'Sorgu Hatası : ' . $e->getMessage() . "</br>";
 		}
@@ -124,7 +124,7 @@ Class Database extends dbConfig
 	        $results->execute($values);
 	        return $this->connection->lastInsertId($table); 
 
-	    } catch(PDOExecption $e) { 
+	    } catch(PDOException $e) { 
 
 	        return "Sorgu Hatası : " . $e->getMessage() . "</br>"; 
 	    } 
@@ -182,7 +182,7 @@ Class Database extends dbConfig
 
 			}
 
-		} catch (PDOExecption $e) {
+		} catch (PDOException $e) {
 
 			return 'Sorgu Hatası : ' . $e->getMessage() . "</br>";
 		}
@@ -232,7 +232,7 @@ Class Database extends dbConfig
 
 			}
 
-		} catch (PDOExecption $e) {
+		} catch (PDOException $e) {
 			return 'Sorgu Hatası : ' . $e->getMessage() . "</br>";
 		}
 
@@ -263,7 +263,7 @@ Class Database extends dbConfig
 			$result->execute($values);
 			return $result;
 
-		} catch (PDOExecption $e) {
+		} catch (PDOException $e) {
 			return 'Sorgu Hatası : ' . $e->getMessage() . "</br>";
 		}
 	}
