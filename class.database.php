@@ -132,14 +132,12 @@ Class Database extends dbConfig
 
 	//UPDATE METHOD
 
-	public function update($table, $array, $where , $locOpt = 'and' , $relOpt = '=') 
+	public function update($table, $array, $where , $locOpt = 'and' , $relOpt = '=',$id) 
 	{
 	
 		$sql = "UPDATE " . $table . " SET ";
-
 		$columns = array_keys($array);
 		$values = array_values($array);
-
 		for($i=0;$i<count($columns);$i++){
 			if($i==count($columns)-1){
 				$sql .= $columns[$i] . " = ? WHERE ";
@@ -147,12 +145,9 @@ Class Database extends dbConfig
 				$sql .= $columns[$i] . " = ? , ";
 			}
 		}
-
 		if(is_array($where)){
-
 			$whereCol = array_keys($where);
 			$whereVal = array_values($where);
-
 			for($i=0;$i<count($whereCol);$i++){
 				if($i==count($whereCol)-1){
 					$sql .= $whereCol[$i] . " " . $relOpt . " '" . $whereVal[$i] . "'";
@@ -161,33 +156,21 @@ Class Database extends dbConfig
 				}
 			}
 		}else{
-
-			$sql .= "id = '".$where."'";
-
+			$sql .=  $id." = '".$where."'";
 		}
-
 		try {
-
 			$result = $this->connection->prepare($sql);
 			$result->execute($values);
 			$count = $result->rowCount();
-
 			if($count){
-
 				return $count;
-
 			}else{
-
 				return false;
-
 			}
-
 		} catch (PDOException $e) {
-
 			return 'Sorgu Hatası : ' . $e->getMessage() . "</br>";
 		}
 		
-
 	}
 
 	//DELETE METHOD
