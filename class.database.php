@@ -132,7 +132,7 @@ Class Database extends dbConfig
 
 	//UPDATE METHOD
 
-	public function update($table, $array, $where , $locOpt = 'and' , $relOpt = '=',$id) 
+	public function update($table, $array, $where , $locOpt = 'and' , $relOpt = '=',$id = 'id') 
 	{
 	
 		$sql = "UPDATE " . $table . " SET ";
